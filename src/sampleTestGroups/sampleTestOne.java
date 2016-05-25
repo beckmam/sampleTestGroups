@@ -9,6 +9,7 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.safari.SafariDriver;
 import org.testng.Assert;
 import org.testng.ITestResult;
@@ -25,9 +26,11 @@ public class sampleTestOne {
 	@BeforeMethod
 	public void tearUp() {
 		System.setProperty("org.uncommons.reportng.escape-output", "false");
-		driver = new SafariDriver();
+		System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe");
+		driver = new ChromeDriver();
 		driver.get("http://www.goetui.com");
-		WebElement link = driver.findElement(By.linkText("ç™»å½•"));
+		driver.manage().window().maximize();
+		WebElement link = driver.findElement(By.linkText("µÇÂ¼"));
 		link.click();
  	}
 	
